@@ -61,15 +61,7 @@ class _MainPageState extends State<MainPage> {
     ProfilePage(),
   ];
 
-  Widget _buildBody(int index) {
-    /// Check if index is in range
-    /// else return Not Found widget
-    ///
-    if (index <= 4)
-      return _pageNavigation[index];
-    else
-      return Text('Not Found');
-  }
+  Widget _buildBody(int index) => _pageNavigation.elementAt(index);
 
   Widget _buildBottomNav() {
     return BottomNavigationBar(
@@ -86,10 +78,5 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  void _getChangeBottomNav(int index) {
-    if (index <= 4)
-      context.cubit<BottomNavCubit>().updateIndex(index);
-    else
-      print('index not in range');
-  }
+  void _getChangeBottomNav(int index) => context.cubit<BottomNavCubit>().updateIndex(index);
 }
